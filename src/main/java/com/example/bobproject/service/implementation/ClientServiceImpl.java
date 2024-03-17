@@ -1,6 +1,7 @@
 package com.example.bobproject.service.implementation;
 
 import com.example.bobproject.entity.Client;
+import com.example.bobproject.enums.AuthorityRole;
 import com.example.bobproject.mapper.ClientDTOMapper;
 import com.example.bobproject.model.requestDTO.ClientReqDTO;
 import com.example.bobproject.model.responseDTO.ClientRespDTO;
@@ -31,6 +32,7 @@ public class ClientServiceImpl implements ClientService {
         if (clientOptional.isPresent()) {
             throw new IllegalStateException("Client with this username exists!");
         }
+        clientReqDTO.setAuthorityRole(AuthorityRole.CLIENT);
         clientRepository.save(ClientDTOMapper.INSTANCE.toEntity(clientReqDTO));
     }
 

@@ -1,5 +1,8 @@
 package com.example.bobproject.model.requestDTO;
 
+import com.example.bobproject.enums.AuthorityRole;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -32,4 +35,7 @@ public class ClientReqDTO {
 
     @NotNull
     private LocalDate dob;
+
+    @Enumerated(EnumType.STRING)
+    private AuthorityRole authorityRole;
 }
